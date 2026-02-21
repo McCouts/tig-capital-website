@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIG Capital | Private Lending Solutions</title>
+  <meta name="description" content="TIG Capital Partners — Canadian specialized private lending. Venture capital lending, asset-based financing, and bespoke credit solutions.">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    /* ===== CUSTOM PROPERTIES ===== */
+    :root {
+      --navy: #0A1628;
+      --navy-light: #0F2035;
+      --navy-mid: #132842;
+      --gold: #D4AF37;
+      --gold-light: #E4C44A;
+      --gold-muted: rgba(212, 175, 55, 0.15);
+      --white: #FFFFFF;
+      --off-white: #F7F7F5;
+      --light-bg: #F0F0EC;
+      --text-body: #1A2A40;
+      --text-muted: #5A6578;
+      --border-subtle: rgba(10, 22, 40, 0.1);
+      --border-gold: rgba(212, 175, 55, 0.25);
+    }
+
+    /* ===== GLOBAL ===== */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      color: var(--navy);
+      background-color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    /* ===== SECTION UTILITIES ===== */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      color: var(--navy);
+    }
+
+    .section-padding {
+      padding: 7rem 0;
+    }
+
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      border: none;
+      opacity: 1;
+      margin-bottom: 2rem;
+    }
+
+    .gold-rule-center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      padding: 1rem 0;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: transparent;
+    }
+
+    .navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.97) !important;
+      box-shadow: 0 1px 0 var(--border-subtle);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+    }
+
+    .navbar-brand .brand-tig {
+      font-size: 1.65rem;
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .navbar-brand .brand-divider {
+      width: 1.5px;
+      height: 24px;
+      background: var(--gold);
+      margin: 0 14px;
+      flex-shrink: 0;
+    }
+
+    .navbar-brand .brand-capital {
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.5rem 1.2rem !important;
+      transition: color 0.25s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+      color: var(--navy);
+    }
+
+    .navbar-toggler {
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.65rem;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(10,22,40,0.6)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .btn-cta-nav {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 0.5rem 1.5rem;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cta-nav:hover {
+      background-color: var(--navy);
+      color: var(--white);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      border: 1px solid rgba(10, 22, 40, 0.03);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(10, 22, 40, 0.02);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      margin-bottom: 1.75rem;
+      color: var(--navy);
+    }
+
+    .hero h1 .text-gold {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+
+    .btn-primary-gold {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 0.9rem 2.5rem;
+      border-radius: 0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 2.5rem;
+    }
+
+    .btn-primary-gold:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-outline-gold {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: transparent;
+      border: 1px solid var(--navy);
+      padding: 0.9rem 2.5rem;
+      border-radius: 0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-metric {
+      border-left: 1px solid var(--border-subtle);
+      padding-left: 1.5rem;
+    }
+
+    .hero-metric-value {
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--navy);
+      letter-spacing: 1px;
+    }
+
+    .hero-metric-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      z-index: 2;
+    }
+
+    .hero-scroll-indicator:hover {
+      color: var(--gold);
+    }
+
+    .hero-scroll-indicator i {
+      font-size: 1.2rem;
+      animation: scrollBounce 2s infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* Geometric accent line */
+    .hero-geo-line {
+      position: absolute;
+      right: 8%;
+      top: 15%;
+      width: 1px;
+      height: 70%;
+      background: linear-gradient(to bottom, transparent, rgba(10,22,40,0.06), transparent);
+      z-index: 1;
+    }
+
+    /* ===== WHAT WE DO ===== */
+    .section-services {
+      background: var(--off-white);
+      position: relative;
+    }
+
+    .section-services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid rgba(10, 22, 40, 0.06);
+      padding: 2.5rem 2rem;
+      height: 100%;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.35s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(10, 22, 40, 0.06);
+    }
+
+    .service-card:hover::after {
+      width: 100%;
+    }
+
+    .service-icon {
+      font-size: 1.75rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: var(--navy);
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* ===== WHY TIG ===== */
+    .section-why {
+      background: var(--white);
+      position: relative;
+    }
+
+    .differentiator {
+      padding: 2rem 0;
+    }
+
+    .differentiator-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .differentiator:hover .differentiator-icon {
+      background: var(--gold-muted);
+      border-color: var(--gold);
+    }
+
+    .differentiator h4 {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+      color: var(--navy);
+    }
+
+    .differentiator p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* ===== ABOUT ===== */
+    .section-about {
+      background: var(--off-white);
+      position: relative;
+    }
+
+    .section-about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    .about-text p + p {
+      margin-top: 1.25rem;
+    }
+
+    .about-stat {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .about-stat-value {
+      font-size: 2.25rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .about-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .about-values {
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .about-value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-value-item i {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    .about-value-item span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== CONTACT ===== */
+    .section-contact {
+      background: var(--white);
+      position: relative;
+    }
+
+    .contact-form .form-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form .form-control,
+    .contact-form .form-select {
+      background: var(--off-white);
+      border: 1px solid rgba(10, 22, 40, 0.1);
+      color: var(--navy);
+      border-radius: 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 300;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form .form-control:focus,
+    .contact-form .form-select:focus {
+      background: var(--white);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
+      color: var(--navy);
+    }
+
+    .contact-form .form-control::placeholder {
+      color: rgba(90, 101, 120, 0.5);
+    }
+
+    .contact-form textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230A1628' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 12px;
+    }
+
+    .contact-form .form-select option {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .btn-submit {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 0.9rem 3rem;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .contact-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-note i {
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .contact-info-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-info-value {
+      font-size: 0.95rem;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .contact-info-value a {
+      color: var(--navy);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-info-value a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--navy);
+      border-top: none;
+      padding: 3.5rem 0 2rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand .brand-tig {
+      font-size: 1.35rem;
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .footer-brand .brand-divider {
+      width: 1.5px;
+      height: 20px;
+      background: var(--gold);
+      margin: 0 12px;
+    }
+
+    .footer-brand .brand-capital {
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .footer-nav a {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      padding: 0.3rem 0;
+      transition: color 0.25s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-legal {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.6;
+    }
+
+    .footer-copyright {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 991.98px) {
+      .section-padding {
+        padding: 5rem 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+      }
+
+      .hero-metrics {
+        margin-top: 3rem;
+      }
+
+      .hero-scroll-indicator {
+        display: none;
+      }
+
+      .hero-geo-line {
+        display: none;
+      }
+
+      .section-heading {
+        font-size: 1.85rem;
+      }
+
+      .navbar-collapse {
+        background: var(--white);
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border: 1px solid var(--border-subtle);
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .section-padding {
+        padding: 4rem 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-metric {
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+        padding-left: 0;
+        padding-top: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .service-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .about-stat {
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .about-stat:last-child {
+        border-bottom: none;
+      }
+    }
+
+    /* ===== FADE-IN ANIMATION ===== */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span class="brand-tig">TIG</span>
+        <span class="brand-divider"></span>
+        <span class="brand-capital">CAPITAL</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">What We Do</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#why">Why TIG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-cta-nav" href="#contact">Learn More</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-geo-line"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="row">
+          <div class="col-lg-8 col-xl-7">
+            <p class="hero-label">Private Lending Solutions</p>
+            <h1>Certainty in<br><span class="text-gold">Complexity</span></h1>
+            <p class="hero-subtitle">When the deal is difficult, we provide the path forward. TIG Capital delivers bespoke private credit solutions for borrowers and transactions that demand more than conventional financing.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#services" class="btn-primary-gold">Our Solutions</a>
+              <a href="#contact" class="btn-outline-gold">Start a Conversation</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 pt-4">
+          <div class="col-auto">
+            <div class="hero-metric">
+              <div class="hero-metric-value">$1B+</div>
+              <div class="hero-metric-label">Capital Deployed</div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="hero-metric">
+              <div class="hero-metric-value">Private</div>
+              <div class="hero-metric-label">Lender</div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="hero-metric">
+              <div class="hero-metric-value">Direct</div>
+              <div class="hero-metric-label">Decision Making</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#services" class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <i class="bi bi-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ===== WHAT WE DO ===== -->
+  <section class="section-services section-padding" id="services">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6 fade-in-section">
+          <p class="section-label">What We Do</p>
+          <hr class="gold-rule">
+          <h2 class="section-heading">Specialized Lending<br>for Complex Capital Needs</h2>
+          <p class="text-muted" style="font-size: 0.95rem; line-height: 1.75;">We structure private credit facilities across asset classes and industries where conventional lenders cannot — or will not.</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-lg-4 fade-in-section">
+          <div class="service-card">
+            <i class="bi bi-graph-up-arrow service-icon"></i>
+            <h3>Venture Capital Lending</h3>
+            <p>Growth-stage and venture-backed companies often need capital structures that traditional banks won't underwrite. We provide debt financing tailored to the lifecycle of high-growth enterprises, structured around milestones.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-lg-4 fade-in-section">
+          <div class="service-card">
+            <i class="bi bi-safe service-icon"></i>
+            <h3>Asset-Based Lending</h3>
+            <p>When the collateral tells a story that balance sheets cannot, we listen. TIG Capital structures asset-backed credit facilities providing liquidity where it's needed most.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-lg-4 fade-in-section">
+          <div class="service-card">
+            <i class="bi bi-puzzle service-icon"></i>
+            <h3>Specialized Lending</h3>
+            <p>Not every financing need fits a standard product. We structure bespoke credit solutions for complex situations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY TIG ===== -->
+  <section class="section-why section-padding" id="why">
+    <div class="container">
+      <div class="text-center mb-5 fade-in-section">
+        <p class="section-label">Why TIG</p>
+        <hr class="gold-rule gold-rule-center">
+        <h2 class="section-heading">The TIG Capital Difference</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 fade-in-section">
+          <div class="differentiator">
+            <div class="differentiator-icon">
+              <i class="bi bi-rulers"></i>
+            </div>
+            <h4>Bespoke Financing Structures</h4>
+            <p>We do not offer off-the-shelf products. Every term sheet is crafted to the specific economics, risk profile, and timeline of the transaction. Our structures are built to close — not to conform to a template.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-in-section">
+          <div class="differentiator">
+            <div class="differentiator-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h4>Relationship-Driven Lending</h4>
+            <p>We build long-term partnerships with borrowers, advisors, and intermediaries. Our principals are directly involved in every transaction — from term sheet to funding. When you work with TIG, you work with decision-makers.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-in-section">
+          <div class="differentiator">
+            <div class="differentiator-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <h4>Speed and Certainty of Execution</h4>
+            <p>Private capital should move at the speed of opportunity. We deliver term sheets in days, not weeks, and close with the certainty that comes from committed capital and a streamlined approval process.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-in-section">
+          <div class="differentiator">
+            <div class="differentiator-icon">
+              <i class="bi bi-eye"></i>
+            </div>
+            <h4>Rigorous Due Diligence</h4>
+            <p>Every transaction undergoes thorough independent analysis. We engage seasoned legal, accounting, and valuation professionals to ensure every credit decision is informed, defensible, and appropriately structured.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-in-section">
+          <div class="differentiator">
+            <div class="differentiator-icon">
+              <i class="bi bi-lock"></i>
+            </div>
+            <h4>Discretion as Standard</h4>
+            <p>We understand that borrowers seeking private capital often require confidentiality. Every inquiry and engagement is handled with institutional-grade discretion. Your business stays your business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section-about section-padding" id="about">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 fade-in-section">
+          <p class="section-label">About TIG Capital</p>
+          <hr class="gold-rule">
+          <h2 class="section-heading">A Trusted Partner<br>in Private Credit</h2>
+          <div class="about-text">
+            <p>TIG Capital was founded by experienced professionals with deep roots in credit markets, structured lending, and principal investing, We apply institutional rigor to every transaction — conducting thorough independent due diligence with the support of established legal counsel, licensed valuation professionals, and independent accounting firms — while maintaining the flexibility and responsiveness that private capital demands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section-contact section-padding" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 mb-5 mb-lg-0 fade-in-section">
+          <p class="section-label">Contact</p>
+          <hr class="gold-rule">
+          <h2 class="section-heading">Start a<br>Conversation</h2>
+          <p class="text-muted" style="font-size: 0.95rem; line-height: 1.75; margin-bottom: 2.5rem;">Whether you have a specific financing need or want to explore how private credit can work for your situation, we welcome the opportunity to speak with you.</p>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">
+                <a href="mailto:info@tigcapital.ca">info@tigcapital.ca</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6 offset-lg-1 fade-in-section">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="formName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="formName" placeholder="John Smith" required>
+              </div>
+              <div class="col-md-6">
+                <label for="formCompany" class="form-label">Company</label>
+                <input type="text" class="form-control" id="formCompany" placeholder="Company Name">
+              </div>
+              <div class="col-md-6">
+                <label for="formEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="formEmail" placeholder="john@company.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="formPhone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="formPhone" placeholder="+1 (416) 000-0000">
+              </div>
+              <div class="col-12">
+                <label for="formAmount" class="form-label">Loan Amount Requested</label>
+                <select class="form-select" id="formAmount">
+                  <option value="" selected disabled>Select a range</option>
+                  <option value="under-500k">Under $500,000</option>
+                  <option value="500k-1m">$500,000 – $1,000,000</option>
+                  <option value="1m-5m">$1,000,000 – $5,000,000</option>
+                  <option value="5m-10m">$5,000,000 – $10,000,000</option>
+                  <option value="10m-plus">$10,000,000+</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="formDescription" class="form-label">Brief Description of Financing Need</label>
+                <textarea class="form-control" id="formDescription" rows="4" placeholder="Please describe the nature of the financing, the underlying asset or business, and your timeline."></textarea>
+              </div>
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-submit">Submit Inquiry</button>
+              </div>
+            </div>
+            <div class="contact-note">
+              <i class="bi bi-shield-lock"></i>
+              <span>All inquiries are treated as strictly confidential.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 mb-4 mb-lg-0">
+          <div class="footer-brand">
+            <span class="brand-tig">TIG</span>
+            <span class="brand-divider"></span>
+            <span class="brand-capital">CAPITAL</span>
+          </div>
+          <p class="footer-tagline">Certainty in Complexity</p>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-2">
+          <nav class="footer-nav">
+            <a href="#about">About</a>
+            <a href="#services">What We Do</a>
+            <a href="#why">Why TIG</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="col-6 col-lg-3">
+          <nav class="footer-nav">
+            <a href="mailto:info@tigcapital.ca">info@tigcapital.ca</a>
+            <a href="#contact">Submit Inquiry</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <p class="footer-legal">TIG Capital Ltd. is a private lender. Not a bank or regulated deposit-taking institution. All financing is subject to credit approval, due diligence, and execution of definitive documentation.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-2 mt-lg-0">
+            <p class="footer-copyright">&copy; 2025 TIG Capital Ltd. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar scroll effect
+    (function () {
+      const nav = document.getElementById('mainNav');
+      function onScroll() {
+        if (window.scrollY > 40) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Close mobile nav on link click
+    (function () {
+      const navCollapse = document.getElementById('navbarNav');
+      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
+      document.querySelectorAll('#navbarNav .nav-link, #navbarNav .btn-cta-nav').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.innerWidth < 992) {
+            bsCollapse.hide();
+          }
+        });
+      });
+    })();
+
+    // Fade-in on scroll (IntersectionObserver)
+    (function () {
+      var els = document.querySelectorAll('.fade-in-section');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        els.forEach(function (el) { observer.observe(el); });
+      } else {
+        els.forEach(function (el) { el.classList.add('visible'); });
+      }
+    })();
+
+    // Simple form validation feedback
+    (function () {
+      var form = document.getElementById('contactForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+        // Replace button text to confirm submission
+        var btn = form.querySelector('.btn-submit');
+        btn.textContent = 'INQUIRY RECEIVED';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+        // In production, wire up to your form handler / API here
+      });
+    })();
+  </script>
+
+</body>
+</html>
